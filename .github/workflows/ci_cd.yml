@@ -12,6 +12,10 @@ permissions:
        
 jobs:
     build:
-        uses: Migracao-NET/pipeline_templates/.github/workflows/javagradle_build.yml@main
-        secrets:
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      uses: Migracao-NET/pipeline_templates/.github/workflows/javagradle_build.yml@main
+      secrets:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+    deploy:
+      needs: build
+      uses: Migracao-NET/pipeline_templates/.github/workflows/javagradle_appdeploy.yml@main
