@@ -19,3 +19,5 @@ jobs:
     deploy:
       needs: build
       uses: Migracao-NET/pipeline_templates/.github/workflows/javagradle_appdeploy.yml@main
+      secrets:
+        AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
